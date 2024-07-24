@@ -1,0 +1,479 @@
+[
+    {
+      "phrase": "reply to my last email",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Namespace = $Outlook.GetNamespace('MAPI'); $Inbox = $Namespace.GetDefaultFolder([Microsoft.Office.Interop.Outlook.OlDefaultFolders]::olFolderInbox); $LastEmail = $Inbox.Items.GetLast(); $Reply = $LastEmail.Reply(); $Reply.Subject = 'Re: ' + $LastEmail.Subject; $Reply.Body = 'Hi,  Thank you for your email.  Best regards, [Your Name]'; $Reply.Send();"
+    },
+    {
+      "phrase": "read my last email",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Namespace = $Outlook.GetNamespace('MAPI'); $Inbox = $Namespace.GetDefaultFolder([Microsoft.Office.Interop.Outlook.OlDefaultFolders]::olFolderInbox); $LastEmail = $Inbox.Items.GetLast(); $LastEmail.Subject; $LastEmail.Body;"
+    },
+    {
+      "phrase": "respond in a clever way to the last email",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Namespace = $Outlook.GetNamespace('MAPI'); $Inbox = $Namespace.GetDefaultFolder([Microsoft.Office.Interop.Outlook.OlDefaultFolders]::olFolderInbox); $LastEmail = $Inbox.Items.GetLast(); $Reply = $LastEmail.Reply(); $Reply.Subject = 'Re: ' + $LastEmail.Subject; $Reply.Body = 'Hi,  Your message was so intriguing, I had to respond!  Looking forward to continuing this conversation.  Best regards, [Your Name]'; $Reply.Send();"
+    },
+    {
+      "phrase": "create a new folder",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Namespace = $Outlook.GetNamespace('MAPI'); $Inbox = $Namespace.GetDefaultFolder([Microsoft.Office.Interop.Outlook.OlDefaultFolders]::olFolderInbox); $NewFolder = $Inbox.Folders.Add('New Folder Name');"
+    },
+    {
+      "phrase": "move an email to a folder",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Namespace = $Outlook.GetNamespace('MAPI'); $Inbox = $Namespace.GetDefaultFolder([Microsoft.Office.Interop.Outlook.OlDefaultFolders]::olFolderInbox); $LastEmail = $Inbox.Items.GetLast(); $DestinationFolder = $Inbox.Folders.Item('Destination Folder Name'); $LastEmail.Move($DestinationFolder);"
+    },
+    {
+      "phrase": "delete the last email",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Namespace = $Outlook.GetNamespace('MAPI'); $Inbox = $Namespace.GetDefaultFolder([Microsoft.Office.Interop.Outlook.OlDefaultFolders]::olFolderInbox); $LastEmail = $Inbox.Items.GetLast(); $LastEmail.Delete();"
+    },
+    {
+      "phrase": "send an email with high importance",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('recipient@example.com'); $Mail.Subject = 'Important: [Subject]'; $Mail.Body = 'Hi,  This is an important message regarding [topic]. Please review it at your earliest convenience.  Best regards, [Your Name]'; $Mail.Importance = 2; $Mail.Send();"
+    },
+    {
+      "phrase": "send an email with a meeting request",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Meeting = $Outlook.CreateItem(1); $Meeting.MeetingStatus = [Microsoft.Office.Interop.Outlook.OlMeetingStatus]::olMeeting; $Meeting.Subject = 'Meeting Request: [Subject]'; $Meeting.Body = 'Hi,  Please join us for a meeting regarding [topic].  Best regards, [Your Name]'; $Meeting.Start = Get-Date '2024-07-23 10:00AM'; $Meeting.Duration = 60; $Meeting.Location = 'Conference Room'; $Meeting.Recipients.Add('attendee@example.com'); $Meeting.Send();"
+    },
+    {
+      "phrase": "send an email with an attachment",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('recipient@example.com'); $Mail.Subject = 'Attached: [Document]'; $Mail.Body = 'Hi,  Please find the attached document for your review.  Best regards, [Your Name]'; $Mail.Attachments.Add('C://path//to//document.pdf'); $Mail.Send();"
+    },
+    {
+      "phrase": "mark the last email as read",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Namespace = $Outlook.GetNamespace('MAPI'); $Inbox = $Namespace.GetDefaultFolder([Microsoft.Office.Interop.Outlook.OlDefaultFolders]::olFolderInbox); $LastEmail = $Inbox.Items.GetLast(); $LastEmail.UnRead = $false; $LastEmail.Save();"
+    },
+    {
+      "phrase": "write an email to rohanjakkal@gmail.com asking to reschedule our meeting",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('rohanjakkal@gmail.com'); $Mail.Recipients.Add('rohan.jakkal@dell.com'); $Mail.Recipients.Add('rohan@rohan.rocks'); $Mail.Subject = 'Meeting'; $Mail.Body = 'Hi, I would like to reschedule our meeting to 4pm. Please let me know if this time works for you. Thanks!'; $Mail.Display();"
+    },
+    {
+      "phrase": "reply to my last email saying I'll be there at noon if that is ok?",
+      "tone": "$outlook = New-Object -ComObject Outlook.Application; $namespace = $outlook.GetNameSpace('MAPI'); $inbox = $namespace.GetDefaultFolder(6); $lastEmail = $inbox.Items.GetLast(); $reply = $lastEmail.Reply(); $reply.Body = 'I'll be there at noon if that is ok?'; $reply.Send();"
+    },
+    {
+      "phrase": "send an email to notify about the project update",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('team@example.com'); $Mail.Subject = 'Project Update'; $Mail.Body = 'Hi Team,  I wanted to update you on the current status of the project. We have completed the initial phase and are moving on to the next steps. Please find the detailed report attached.  Best regards, [Your Name]'; $Mail.Attachments.Add('C://path//to//report.pdf'); $Mail.Display();"
+    },
+    {
+      "phrase": "send a thank you email to your mentor",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('mentor@example.com'); $Mail.Subject = 'Thank You!'; $Mail.Body = 'Dear Mentor,  I wanted to take a moment to thank you for your guidance and support during the past few months. Your insights have been invaluable, and I am grateful for the time you have invested in helping me grow.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an invitation email for a team meeting",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('team@example.com'); $Mail.Subject = 'Team Meeting Invitation'; $Mail.Body = 'Hi Team,  You are invited to our team meeting scheduled for Friday at 10 AM. We will be discussing the project milestones and planning the next steps. Please make sure to attend.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to HR regarding leave request",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('hr@example.com'); $Mail.Subject = 'Leave Request'; $Mail.Body = 'Dear HR,  I am writing to request leave from start date to end date due to personal reasons. Please let me know if you need any further information.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send a follow-up email to a client after a meeting",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('client@example.com'); $Mail.Subject = 'Follow-Up After Our Meeting'; $Mail.Body = 'Dear Client Name,  Thank you for meeting with me earlier today. I appreciate the opportunity to discuss our project and the potential next steps. Please let me know if you have any further questions or require additional information.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to IT support regarding a technical issue",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('itsupport@example.com'); $Mail.Subject = 'Technical Issue'; $Mail.Body = 'Dear IT Support,  I am experiencing a technical issue with my computer. The system is running very slowly, and I am unable to access certain applications. Please assist me in resolving this issue at your earliest convenience.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to a colleague to coordinate a project task",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('colleague@example.com'); $Mail.Subject = 'Project Task Coordination'; $Mail.Body = 'Hi Colleague Name,  I hope you are well. I am writing to coordinate the next steps for our project task. Could we set up a brief meeting to discuss our progress and upcoming deadlines?  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to a supplier to inquire about an order status",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('supplier@example.com'); $Mail.Subject = 'Order Status Inquiry'; $Mail.Body = 'Dear Supplier Name,  I am writing to inquire about the status of our recent order (#12345). Could you please provide an update on the expected delivery date?  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to confirm attendance at an event",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('eventorganizer@example.com'); $Mail.Subject = 'Event Attendance Confirmation'; $Mail.Body = 'Dear Event Organizer,  I am writing to confirm my attendance at the upcoming event on date. I am looking forward to participating and meeting other attendees.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send a reminder email for a pending task",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('teammember@example.com'); $Mail.Subject = 'Reminder: Pending Task'; $Mail.Body = 'Hi Team Member,  Just a friendly reminder about the pending task that is due by deadline. Please ensure it is completed on time.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to schedule a performance review meeting",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('employee@example.com'); $Mail.Subject = 'Performance Review Meeting'; $Mail.Body = 'Dear Employee,  I would like to schedule a performance review meeting to discuss your progress and future goals. Please let me know your availability for this week.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to request a document from a colleague",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('colleague@example.com'); $Mail.Subject = 'Request for Document'; $Mail.Body = 'Hi Colleague,  Could you please send me the document we discussed in our last meeting? I need it for my upcoming report.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to report a bug in the system",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('support@example.com'); $Mail.Subject = 'Bug Report'; $Mail.Body = 'Dear Support Team,  I have encountered a bug in the system. The issue occurs when describe the steps to reproduce the bug. Please investigate and resolve it as soon as possible.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to a client to propose a new solution",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('client@example.com'); $Mail.Subject = 'Proposed Solution for Your Project'; $Mail.Body = 'Dear Client Name,  I am excited to propose a new solution for your project that I believe will significantly improve the outcomes. Please find the detailed proposal attached. Let me know if we can schedule a meeting to discuss this further.  Best regards, [Your Name]'; $Mail.Attachments.Add('C://path//to//proposal.pdf'); $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to congratulate a colleague on their promotion",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('colleague@example.com'); $Mail.Subject = 'Congratulations on Your Promotion!'; $Mail.Body = 'Hi Colleague,  Congratulations on your well-deserved promotion! I am confident that you will excel in your new role and continue to achieve great success.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to request feedback on a draft report",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('reviewer@example.com'); $Mail.Subject = 'Request for Feedback on Draft Report'; $Mail.Body = 'Dear Reviewer,  I have attached the draft report for your review. Could you please provide your feedback by deadline? Your insights and suggestions will be greatly appreciated.  Thank you, [Your Name]'; $Mail.Attachments.Add('C://path//to//draft_report.docx'); $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to a professor to request a meeting",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('professor@example.com'); $Mail.Subject = 'Meeting Request'; $Mail.Body = 'Dear Professor Last Name,  I hope this email finds you well. I am writing to request a meeting to discuss topic. Please let me know your availability for this week.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to a supplier to negotiate prices",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('supplier@example.com'); $Mail.Subject = 'Price Negotiation'; $Mail.Body = 'Dear Supplier Name,  I hope you are well. I am reaching out to discuss the current pricing of the products we order from your company. We are looking to negotiate more favorable terms that align with our budget. Please let me know a convenient time to discuss this further.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to team members to schedule a brainstorming session",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('team1@example.com'); $Mail.Recipients.Add('team2@example.com'); $Mail.Subject = 'Brainstorming Session'; $Mail.Body = 'Hi Team,  We are planning to have a brainstorming session to discuss new ideas for our upcoming project. Please let me know your availability for this week.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to IT support to request a new software installation",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('itsupport@example.com'); $Mail.Subject = 'Software Installation Request'; $Mail.Body = 'Dear IT Support,  I need the Software Name installed on my workstation to complete my tasks. Could you please assist with the installation at your earliest convenience?  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to request access to a restricted file",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('admin@example.com'); $Mail.Subject = 'Access Request'; $Mail.Body = 'Dear Admin,  I am working on a project that requires access to the restricted file File Name. Could you please grant me the necessary permissions?  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the marketing team for the latest campaign updates",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('marketing@example.com'); $Mail.Subject = 'Campaign Updates'; $Mail.Body = 'Hi Marketing Team,  Could you please provide the latest updates on our current marketing campaign? We need to include this information in our weekly report.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the finance department to inquire about reimbursement status",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('finance@example.com'); $Mail.Subject = 'Reimbursement Status Inquiry'; $Mail.Body = 'Dear Finance Team,  I am writing to inquire about the status of my reimbursement request submitted on date. Could you please provide an update on when I can expect the payment?  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the logistics team to confirm delivery of office supplies",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('logistics@example.com'); $Mail.Subject = 'Office Supplies Delivery Confirmation'; $Mail.Body = 'Hi Logistics Team,  Can you please confirm if the office supplies order placed on date has been delivered? We are still waiting to receive the items.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to HR to confirm details of the upcoming training session",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('hr@example.com'); $Mail.Subject = 'Training Session Confirmation'; $Mail.Body = 'Dear HR Team,  Could you please confirm the details for the upcoming training session scheduled on date? Specifically, I need to know the time and venue.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to a colleague to coordinate on a shared presentation",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('colleague@example.com'); $Mail.Subject = 'Coordination on Presentation'; $Mail.Body = 'Hi Colleague,  We need to coordinate our efforts for the upcoming presentation. Could we meet sometime this week to align on the content and format?  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the legal department to review a contract",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('legal@example.com'); $Mail.Subject = 'Contract Review Request'; $Mail.Body = 'Dear Legal Team,  Please review the attached contract and provide your feedback. We need to finalize it by deadline.  Thank you, [Your Name]'; $Mail.Attachments.Add('C://path//to//contract.pdf'); $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the procurement team to request new hardware",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('procurement@example.com'); $Mail.Subject = 'New Hardware Request'; $Mail.Body = 'Dear Procurement Team,  I am requesting new hardware for my department, specifically list the hardware needed. This equipment is necessary to support our upcoming project.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the customer service team to escalate an unresolved issue",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('customerservice@example.com'); $Mail.Subject = 'Escalation of Unresolved Issue'; $Mail.Body = 'Dear Customer Service Team,  I am escalating an unresolved issue regarding describe the issue. This matter has been pending since date and requires urgent attention.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to inform your manager about project completion",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('manager@example.com'); $Mail.Subject = 'Project Completion'; $Mail.Body = 'Dear Manager,  I am pleased to inform you that we have successfully completed the project name project. Please find the final report attached.  Best regards, [Your Name]'; $Mail.Attachments.Add('C://path//to//final_report.pdf'); $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to request a meeting room for a team event",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('facilities@example.com'); $Mail.Subject = 'Meeting Room Request'; $Mail.Body = 'Dear Facilities Team,  I would like to book a meeting room for a team event on date from start time to end time. Please confirm the availability of a room that can accommodate number of people.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the security team to report a lost access card",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('security@example.com'); $Mail.Subject = 'Lost Access Card Report'; $Mail.Body = 'Dear Security Team,  I am reporting a lost access card. The card was last seen on date and has not been found. Please advise on the next steps to obtain a replacement.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the travel desk to book a business trip",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('traveldesk@example.com'); $Mail.Subject = 'Business Trip Booking Request'; $Mail.Body = 'Dear Travel Desk Team,  I need to book a business trip to destination for purpose of travel. The proposed travel dates are from start date to end date. Please assist with the booking and provide the itinerary.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the design team requesting updates on the new project layout",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('designteam@example.com'); $Mail.Subject = 'Update on New Project Layout'; $Mail.Body = 'Hi Design Team,  Could you please provide an update on the new project layout? We need to review the design before our next meeting.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to notify about the project update",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('team@example.com'); $Mail.Subject = 'Project Update'; $Mail.Body = 'Hi Team,  I wanted to update you on the current status of the project. We have completed the initial phase and are moving on to the next steps. Please find the detailed report attached.  Best regards, [Your Name]'; $Mail.Attachments.Add('C://path//to//report.pdf'); $Mail.Display();"
+    },
+    {
+      "phrase": "send a thank you email to your mentor",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('mentor@example.com'); $Mail.Subject = 'Thank You!'; $Mail.Body = 'Dear Mentor,  I wanted to take a moment to thank you for your guidance and support during the past few months. Your insights have been invaluable, and I am grateful for the time you have invested in helping me grow.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an invitation email for a team meeting",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('team@example.com'); $Mail.Subject = 'Team Meeting Invitation'; $Mail.Body = 'Hi Team,  You are invited to our team meeting scheduled for Friday at 10 AM. We will be discussing the project milestones and planning the next steps. Please make sure to attend.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to HR regarding leave request",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('hr@example.com'); $Mail.Subject = 'Leave Request'; $Mail.Body = 'Dear HR,  I am writing to request leave from start date to end date due to personal reasons. Please let me know if you need any further information.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send a follow-up email to a client after a meeting",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('client@example.com'); $Mail.Subject = 'Follow-Up After Our Meeting'; $Mail.Body = 'Dear Client Name,  Thank you for meeting with me earlier today. I appreciate the opportunity to discuss our project and the potential next steps. Please let me know if you have any further questions or require additional information.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to IT support regarding a technical issue",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('itsupport@example.com'); $Mail.Subject = 'Technical Issue'; $Mail.Body = 'Dear IT Support,  I am experiencing a technical issue with my computer. The system is running very slowly, and I am unable to access certain applications. Please assist me in resolving this issue at your earliest convenience.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to a colleague to coordinate a project task",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('colleague@example.com'); $Mail.Subject = 'Project Task Coordination'; $Mail.Body = 'Hi Colleague Name,  I hope you are well. I am writing to coordinate the next steps for our project task. Could we set up a brief meeting to discuss our progress and upcoming deadlines?  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to a supplier to inquire about an order status",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('supplier@example.com'); $Mail.Subject = 'Order Status Inquiry'; $Mail.Body = 'Dear Supplier Name,  I am writing to inquire about the status of our recent order (#12345). Could you please provide an update on the expected delivery date?  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to confirm attendance at an event",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('eventorganizer@example.com'); $Mail.Subject = 'Event Attendance Confirmation'; $Mail.Body = 'Dear Event Organizer,  I am writing to confirm my attendance at the upcoming event on date. I am looking forward to participating and meeting other attendees.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send a reminder email for a pending task",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('teammember@example.com'); $Mail.Subject = 'Reminder: Pending Task'; $Mail.Body = 'Hi Team Member,  Just a friendly reminder about the pending task that is due by deadline. Please ensure it is completed on time.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to schedule a performance review meeting",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('employee@example.com'); $Mail.Subject = 'Performance Review Meeting'; $Mail.Body = 'Dear Employee,  I would like to schedule a performance review meeting to discuss your progress and future goals. Please let me know your availability for this week.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to request a document from a colleague",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('colleague@example.com'); $Mail.Subject = 'Request for Document'; $Mail.Body = 'Hi Colleague,  Could you please send me the document we discussed in our last meeting? I need it for my upcoming report.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to report a bug in the system",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('support@example.com'); $Mail.Subject = 'Bug Report'; $Mail.Body = 'Dear Support Team,  I have encountered a bug in the system. The issue occurs when describe the steps to reproduce the bug. Please investigate and resolve it as soon as possible.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to a client to propose a new solution",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('client@example.com'); $Mail.Subject = 'Proposed Solution for Your Project'; $Mail.Body = 'Dear Client Name,  I am excited to propose a new solution for your project that I believe will significantly improve the outcomes. Please find the detailed proposal attached. Let me know if we can schedule a meeting to discuss this further.  Best regards, [Your Name]'; $Mail.Attachments.Add('C://path//to//proposal.pdf'); $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to congratulate a colleague on their promotion",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('colleague@example.com'); $Mail.Subject = 'Congratulations on Your Promotion!'; $Mail.Body = 'Hi Colleague,  Congratulations on your well-deserved promotion! I am confident that you will excel in your new role and continue to achieve great success.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to request feedback on a draft report",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('reviewer@example.com'); $Mail.Subject = 'Request for Feedback on Draft Report'; $Mail.Body = 'Dear Reviewer,  I have attached the draft report for your review. Could you please provide your feedback by deadline? Your insights and suggestions will be greatly appreciated.  Thank you, [Your Name]'; $Mail.Attachments.Add('C://path//to//draft_report.docx'); $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to a professor to request a meeting",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('professor@example.com'); $Mail.Subject = 'Meeting Request'; $Mail.Body = 'Dear Professor Last Name,  I hope this email finds you well. I am writing to request a meeting to discuss topic. Please let me know your availability for this week.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to a supplier to negotiate prices",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('supplier@example.com'); $Mail.Subject = 'Price Negotiation'; $Mail.Body = 'Dear Supplier Name,  I hope you are well. I am reaching out to discuss the current pricing of the products we order from your company. We are looking to negotiate more favorable terms that align with our budget. Please let me know a convenient time to discuss this further.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to team members to schedule a brainstorming session",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('team1@example.com'); $Mail.Recipients.Add('team2@example.com'); $Mail.Subject = 'Brainstorming Session'; $Mail.Body = 'Hi Team,  We are planning to have a brainstorming session to discuss new ideas for our upcoming project. Please let me know your availability for this week.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to IT support to request a new software installation",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('itsupport@example.com'); $Mail.Subject = 'Software Installation Request'; $Mail.Body = 'Dear IT Support,  I need the Software Name installed on my workstation to complete my tasks. Could you please assist with the installation at your earliest convenience?  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to request access to a restricted file",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('admin@example.com'); $Mail.Subject = 'Access Request'; $Mail.Body = 'Dear Admin,  I am working on a project that requires access to the restricted file File Name. Could you please grant me the necessary permissions?  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the marketing team for the latest campaign updates",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('marketing@example.com'); $Mail.Subject = 'Campaign Updates'; $Mail.Body = 'Hi Marketing Team,  Could you please provide the latest updates on our current marketing campaign? We need to include this information in our weekly report.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the finance department to inquire about reimbursement status",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('finance@example.com'); $Mail.Subject = 'Reimbursement Status Inquiry'; $Mail.Body = 'Dear Finance Team,  I am writing to inquire about the status of my reimbursement request submitted on date. Could you please provide an update on when I can expect the payment?  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the logistics team to confirm delivery of office supplies",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('logistics@example.com'); $Mail.Subject = 'Office Supplies Delivery Confirmation'; $Mail.Body = 'Hi Logistics Team,  Can you please confirm if the office supplies order placed on date has been delivered? We are still waiting to receive the items.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to HR to confirm details of the upcoming training session",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('hr@example.com'); $Mail.Subject = 'Training Session Confirmation'; $Mail.Body = 'Dear HR Team,  Could you please confirm the details for the upcoming training session scheduled on date? Specifically, I need to know the time and venue.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to a colleague to coordinate on a shared presentation",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('colleague@example.com'); $Mail.Subject = 'Coordination on Presentation'; $Mail.Body = 'Hi Colleague,  We need to coordinate our efforts for the upcoming presentation. Could we meet sometime this week to align on the content and format?  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the legal department to review a contract",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('legal@example.com'); $Mail.Subject = 'Contract Review Request'; $Mail.Body = 'Dear Legal Team,  Please review the attached contract and provide your feedback. We need to finalize it by deadline.  Thank you, [Your Name]'; $Mail.Attachments.Add('C://path//to//contract.pdf'); $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the procurement team to request new hardware",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('procurement@example.com'); $Mail.Subject = 'New Hardware Request'; $Mail.Body = 'Dear Procurement Team,  I am requesting new hardware for my department, specifically list the hardware needed. This equipment is necessary to support our upcoming project.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the customer service team to escalate an unresolved issue",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('customerservice@example.com'); $Mail.Subject = 'Escalation of Unresolved Issue'; $Mail.Body = 'Dear Customer Service Team,  I am escalating an unresolved issue regarding describe the issue. This matter has been pending since date and requires urgent attention.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to inform your manager about project completion",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('manager@example.com'); $Mail.Subject = 'Project Completion'; $Mail.Body = 'Dear Manager,  I am pleased to inform you that we have successfully completed the project name project. Please find the final report attached.  Best regards, [Your Name]'; $Mail.Attachments.Add('C://path//to//final_report.pdf'); $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to request a meeting room for a team event",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('facilities@example.com'); $Mail.Subject = 'Meeting Room Request'; $Mail.Body = 'Dear Facilities Team,  I would like to book a meeting room for a team event on date from start time to end time. Please confirm the availability of a room that can accommodate number of people.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the security team to report a lost access card",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('security@example.com'); $Mail.Subject = 'Lost Access Card Report'; $Mail.Body = 'Dear Security Team,  I am reporting a lost access card. The card was last seen on date and has not been found. Please advise on the next steps to obtain a replacement.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the travel desk to book a business trip",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('traveldesk@example.com'); $Mail.Subject = 'Business Trip Booking Request'; $Mail.Body = 'Dear Travel Desk Team,  I need to book a business trip to destination for purpose of travel. The proposed travel dates are from start date to end date. Please assist with the booking and provide the itinerary.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the design team requesting updates on the new project layout",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('designteam@example.com'); $Mail.Subject = 'Update on New Project Layout'; $Mail.Body = 'Hi Design Team,  Could you please provide an update on the new project layout? We need to review the design before our next meeting.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the procurement team to inquire about the status of an order",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('procurement@example.com'); $Mail.Subject = 'Order Status Inquiry'; $Mail.Body = 'Dear Procurement Team,  I am writing to inquire about the status of our recent order (#12345). Could you please provide an update on the expected delivery date?  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the sales team to share the latest customer feedback",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('sales@example.com'); $Mail.Subject = 'Customer Feedback'; $Mail.Body = 'Hi Sales Team,  I wanted to share the latest feedback we received from our customers. Please find the details attached. This feedback might be helpful for our upcoming sales strategies.  Best regards, [Your Name]'; $Mail.Attachments.Add('C://path//to//feedback.docx'); $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to a client to follow up on a pending payment",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('client@example.com'); $Mail.Subject = 'Pending Payment Follow-Up'; $Mail.Body = 'Dear Client Name,  I am writing to follow up on the pending payment for invoice #12345, which was due on due date. Please let us know the status of this payment.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to request participation in a company survey",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('employees@example.com'); $Mail.Subject = 'Company Survey Participation Request'; $Mail.Body = 'Dear Team,  We are conducting a company-wide survey to gather feedback on various aspects of our operations. Your participation is highly valued. Please take a few minutes to complete the survey using the following link: survey link.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to request approval for a budget increase",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('manager@example.com'); $Mail.Subject = 'Budget Increase Approval Request'; $Mail.Body = 'Dear Manager,  I am requesting approval for a budget increase for the project name project. The additional funds are needed to cover unforeseen expenses. Please find the detailed justification attached.  Thank you, [Your Name]'; $Mail.Attachments.Add('C://path//to//budget_justification.docx'); $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to HR to request information about employee benefits",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('hr@example.com'); $Mail.Subject = 'Employee Benefits Information Request'; $Mail.Body = 'Dear HR Team,  Could you please provide detailed information about the employee benefits available to us, including health insurance and retirement plans? I am particularly interested in understanding the coverage and options available.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to a client to confirm receipt of their purchase order",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('client@example.com'); $Mail.Subject = 'Purchase Order Confirmation'; $Mail.Body = 'Dear Client Name,  This is to confirm that we have received your purchase order (#12345). Our team is currently processing it, and we will update you once the order is ready for shipment.  Thank you for your business.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the operations team to report a production issue",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('operations@example.com'); $Mail.Subject = 'Production Issue Report'; $Mail.Body = 'Dear Operations Team,  I am writing to report an issue with the production line that occurred on date. The issue has caused a delay in our schedule. Please investigate and address this as soon as possible.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to a vendor to negotiate terms for a new contract",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('vendor@example.com'); $Mail.Subject = 'Contract Terms Negotiation'; $Mail.Body = 'Dear Vendor Name,  We are looking to negotiate the terms of our new contract with your company. Could we schedule a meeting to discuss the specifics and come to a mutually beneficial agreement?  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the marketing team to review the latest campaign results",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('marketing@example.com'); $Mail.Subject = 'Review of Latest Campaign Results'; $Mail.Body = 'Hi Marketing Team,  Please review the results of our latest campaign and provide your insights. We need to assess the effectiveness and plan our next steps accordingly.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to a colleague to request collaboration on a new project",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('colleague@example.com'); $Mail.Subject = 'Collaboration Request'; $Mail.Body = 'Hi Colleague,  I would like to discuss a new project and explore potential collaboration opportunities. Could we set up a meeting to go over the details?  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the compliance team to report a policy violation",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('compliance@example.com'); $Mail.Subject = 'Policy Violation Report'; $Mail.Body = 'Dear Compliance Team,  I am reporting a policy violation that I observed in our department. The incident involves describe the violation. Please investigate and take appropriate action.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the customer support team to provide additional details about a complaint",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('customersupport@example.com'); $Mail.Subject = 'Additional Details for Complaint #12345'; $Mail.Body = 'Dear Customer Support Team,  I am providing additional details regarding complaint #12345. The issue involves describe the issue in detail. Please review and address this complaint as soon as possible.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to request participation in an upcoming workshop",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('workshop@example.com'); $Mail.Subject = 'Workshop Participation Request'; $Mail.Body = 'Dear Workshop Organizer,  I would like to participate in the upcoming workshop on topic. Please let me know the registration process and any additional information I need to provide.  Thank you, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to a new hire to welcome them to the team",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('newhire@example.com'); $Mail.Subject = 'Welcome to the Team'; $Mail.Body = 'Hi New Hire,  Welcome to Dell Technologies! We are excited to have you on board. Please let us know if you need any assistance as you get settled in.  Best regards, [Your Name]'; $Mail.Display();"
+    },
+    {
+      "phrase": "send an email to the R&D team to request a status update on a prototype",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('rnd@example.com'); $Mail.Subject = 'Prototype Status Update'; $Mail.Body = 'Hi R&D Team,  Could you please provide an update on the status of the prototype we discussed last month? We need to assess its readiness for the upcoming review meeting.  Best regards, [Your Name]'; $Mail.Send();"
+    },
+    {
+      "phrase": "send an email to the training coordinator to request details on upcoming sessions",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('trainingcoordinator@example.com'); $Mail.Subject = 'Upcoming Training Sessions'; $Mail.Body = 'Dear Training Coordinator,  I would like to receive details about the upcoming training sessions scheduled for this quarter. Please provide information on the topics covered and the registration process.  Thank you, [Your Name]'; $Mail.Send();"
+    },
+    {
+      "phrase": "send an email to the legal team to request a review of a partnership agreement",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('legal@example.com'); $Mail.Subject = 'Review of Partnership Agreement'; $Mail.Body = 'Dear Legal Team,  Please review the attached partnership agreement and provide your feedback. We need to finalize the terms before the end of the month.  Thank you, [Your Name]'; $Mail.Attachments.Add('C://path//to//partnership_agreement.pdf'); $Mail.Send();"
+    },
+    {
+      "phrase": "send an email to the event planning team to finalize arrangements for a company event",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Mail = $Outlook.CreateItem(0); $Mail.Recipients.Add('eventplanning@example.com'); $Mail.Subject = 'Finalizing Event Arrangements'; $Mail.Body = 'Hi Event Planning Team,  I would like to finalize the arrangements for the upcoming company event. Please confirm the venue, catering, and agenda details at your earliest convenience.  Best regards, [Your Name]'; $Mail.Send();"
+    },
+    {
+      "phrase": "create an appointment for a project meeting",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Appointment = $Outlook.CreateItem(1); $Appointment.Subject = 'Project Meeting'; $Appointment.Start = '2024-07-24T14:00:00'; $Appointment.End = '2024-07-24T15:00:00'; $Appointment.Location = 'Conference Room'; $Appointment.Body = 'Discuss project updates and next steps.'; $Appointment.ReminderSet = $true; $Appointment.ReminderMinutesBeforeStart = 15; $Appointment.Recipients.Add('john.doe@example.com'); $Appointment.Recipients.Add('jane.smith@example.com'); $Appointment.Save();"
+    },
+    {
+      "phrase": "create an appointment for a client call",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Appointment = $Outlook.CreateItem(1); $Appointment.Subject = 'Client Call'; $Appointment.Start = '2024-07-25T10:00:00'; $Appointment.End = '2024-07-25T11:00:00'; $Appointment.Location = 'Office'; $Appointment.Body = 'Call with the client to discuss requirements.'; $Appointment.ReminderSet = $true; $Appointment.ReminderMinutesBeforeStart = 30; $Appointment.Recipients.Add('client@example.com'); $Appointment.Save();"
+    },
+    {
+      "phrase": "create an appointment for a team sync",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Appointment = $Outlook.CreateItem(1); $Appointment.Subject = 'Team Sync'; $Appointment.Start = '2024-07-26T09:00:00'; $Appointment.End = '2024-07-26T09:30:00'; $Appointment.Location = 'Meeting Room 1'; $Appointment.Body = 'Weekly team sync to discuss progress and blockers.'; $Appointment.ReminderSet = $true; $Appointment.ReminderMinutesBeforeStart = 10; $Appointment.Recipients.Add('team@example.com'); $Appointment.Save();"
+    },
+    {
+      "phrase": "create an appointment for a performance review",
+      "tone": "$Outlook = New-Object -ComObject Outlook.Application; $Appointment = $Outlook.CreateItem(1); $Appointment.Subject = 'Performance Review'; $Appointment.Start = '2024-07-27T11:00:00'; $Appointment.End = '2024-07-27T12:00:00'; $Appointment.Location = 'HR Office'; $Appointment.Body = 'Annual performance review meeting.'; $Appointment.ReminderSet = $true; $Appointment.ReminderMinutesBeforeStart = 20; $Appointment.Recipients.Add('employee@example.com'); $Appointment.Save();"
+    },
+    {
+      "phrase": "create an event in a specific calendar",
+      "tone": "Import-Module Microsoft.Graph.Calendar; $params = @{ subject = 'Let's go for lunch'; body = @{ contentType = 'HTML'; content = 'Does mid month work for you?' }; start = @{ dateTime = '2019-03-15T12:00:00'; timeZone = 'Pacific Standard Time' }; end = @{ dateTime = '2019-03-15T14:00:00'; timeZone = 'Pacific Standard Time' }; location = @{ displayName = 'Harry's Bar' }; attendees = @(@{ emailAddress = @{ address = 'adelev@contoso.onmicrosoft.com'; name = 'Adele Vance' }; type = 'required' }); transactionId = '7E163156-7762-4BEB-A1C6-729EA81755A7' }; New-MgUserCalendarEvent -UserId $userId -CalendarId $calendarId -BodyParameter $params"
+    },
+    {
+      "phrase": "create and enable an event as an online meeting",
+      "tone": "Import-Module Microsoft.Graph.Calendar; $params = @{ subject = \"Let's go for lunch\"; body = @{ contentType = \"HTML\"; content = \"Does next month work for you?\" }; start = @{ dateTime = \"2019-03-10T12:00:00\"; timeZone = \"Pacific Standard Time\" }; end = @{ dateTime = \"2019-03-10T14:00:00\"; timeZone = \"Pacific Standard Time\" }; location = @{ displayName = \"Harry's Bar\" }; attendees = @(@{ emailAddress = @{ address = \"adelev@contoso.onmicrosoft.com\"; name = \"Adele Vance\" }; type = \"required\" }); isOnlineMeeting = $true; onlineMeetingProvider = \"teamsForBusiness\" }; New-MgUserCalendarEvent -UserId $userId -CalendarId $calendarId -BodyParameter $params"
+    },
+    {
+      "phrase": "create a recurring event",
+      "tone": "Import-Module Microsoft.Graph.Calendar; $params = @{ subject = \"Weekly Team Meeting\"; body = @{ contentType = \"HTML\"; content = \"Let's discuss our weekly progress and plans.\" }; start = @{ dateTime = \"2024-07-28T10:00:00\"; timeZone = \"Pacific Standard Time\" }; end = @{ dateTime = \"2024-07-28T11:00:00\"; timeZone = \"Pacific Standard Time\" }; location = @{ displayName = \"Conference Room\" }; attendees = @(@{ emailAddress = @{ address = \"team@example.com\"; name = \"Team\" }; type = \"required\" }); recurrence = @{ pattern = @{ type = \"weekly\"; interval = 1; daysOfWeek = @(\"monday\") }; range = @{ type = \"endDate\"; startDate = \"2024-07-28\"; endDate = \"2024-12-31\" } }; }; New-MgUserCalendarEvent -UserId $userId -CalendarId $calendarId -BodyParameter $params"
+    },
+    {
+      "phrase": "create an all-day event",
+      "tone": "Import-Module Microsoft.Graph.Calendar; $params = @{ subject = \"Company Retreat\"; body = @{ contentType = \"HTML\"; content = \"Join us for a day of fun and team building activities.\" }; start = @{ dateTime = \"2024-08-15T00:00:00\"; timeZone = \"Pacific Standard Time\" }; end = @{ dateTime = \"2024-08-15T23:59:59\"; timeZone = \"Pacific Standard Time\" }; location = @{ displayName = \"Beach Resort\" }; isAllDay = $true; attendees = @(@{ emailAddress = @{ address = \"employee@example.com\"; name = \"Employee\" }; type = \"required\" }); }; New-MgUserCalendarEvent -UserId $userId -CalendarId $calendarId -BodyParameter $params"
+    },
+    {
+      "phrase": "create an event with attachments",
+      "tone": "Import-Module Microsoft.Graph.Calendar; $params = @{ subject = \"Project Kickoff Meeting\"; body = @{ contentType = \"HTML\"; content = \"Please review the attached project plan.\" }; start = @{ dateTime = \"2024-07-30T09:00:00\"; timeZone = \"Pacific Standard Time\" }; end = @{ dateTime = \"2024-07-30T10:30:00\"; timeZone = \"Pacific Standard Time\" }; location = @{ displayName = \"Meeting Room A\" }; attendees = @(@{ emailAddress = @{ address = \"project.team@example.com\"; name = \"Project Team\" }; type = \"required\" }); attachments = @(@{ '@odata.type' = \"#microsoft.graph.fileAttachment\"; name = \"ProjectPlan.docx\"; contentBytes = [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes(\"C:\\path\\to\\ProjectPlan.docx\")) }); }; New-MgUserCalendarEvent -UserId $userId -CalendarId $calendarId -BodyParameter $params"
+    },
+    {
+        "phrase": "Create a meeting with the marketing team",
+        "tone": "Import-Module Microsoft.Graph.Calendar; Connect-MgGraph -Scopes 'User.Read Calendars.ReadWrite'; $userId = (Get-MgUser -UserId 'me').Id; $calendarId = (Get-MgUserCalendar -UserId $userId -Top 1).Id; $params = @{ subject = 'Marketing Team Meeting'; body = @{ contentType = 'HTML'; content = 'Discuss Q3 marketing strategy' }; start = @{ dateTime = '2024-07-31T10:00:00'; timeZone = 'Pacific Standard Time' }; end = @{ dateTime = '2024-07-31T11:00:00'; timeZone = 'Pacific Standard Time' }; location = @{ displayName = 'Conference Room B' }; attendees = @(@{ emailAddress = @{ address = 'marketing.team@example.com'; name = 'Marketing Team' }; type = 'required' }) }; New-MgUserCalendarEvent -UserId $userId -CalendarId $calendarId -BodyParameter $params"
+    },
+    {
+        "phrase": "Schedule a one-on-one with my manager",
+        "tone": "Import-Module Microsoft.Graph.Calendar; Connect-MgGraph -Scopes 'User.Read Calendars.ReadWrite'; $userId = (Get-MgUser -UserId 'me').Id; $calendarId = (Get-MgUserCalendar -UserId $userId -Top 1).Id; $params = @{ subject = 'One-on-One with Manager'; body = @{ contentType = 'HTML'; content = 'Monthly performance review' }; start = @{ dateTime = '2024-08-01T14:00:00'; timeZone = 'Pacific Standard Time' }; end = @{ dateTime = '2024-08-01T15:00:00'; timeZone = 'Pacific Standard Time' }; location = @{ displayName = 'Manager's Office' }; attendees = @(@{ emailAddress = @{ address = 'manager@example.com'; name = 'Manager' }; type = 'required' }) }; New-MgUserCalendarEvent -UserId $userId -CalendarId $calendarId -BodyParameter $params"
+    },
+    {
+        "phrase": "Set up a weekly team sync",
+        "tone": "Import-Module Microsoft.Graph.Calendar; Connect-MgGraph -Scopes 'User.Read Calendars.ReadWrite'; $userId = (Get-MgUser -UserId 'me').Id; $calendarId = (Get-MgUserCalendar -UserId $userId -Top 1).Id; $params = @{ subject = 'Weekly Team Sync'; body = @{ contentType = 'HTML'; content = 'Weekly update and planning session' }; start = @{ dateTime = '2024-08-05T09:00:00'; timeZone = 'Pacific Standard Time' }; end = @{ dateTime = '2024-08-05T10:00:00'; timeZone = 'Pacific Standard Time' }; location = @{ displayName = 'Zoom Meeting' }; attendees = @(@{ emailAddress = @{ address = 'team@example.com'; name = 'Team' }; type = 'required' }); recurrence = @{ pattern = @{ type = 'weekly'; interval = 1; daysOfWeek = @('Monday') }; range = @{ type = 'endDate'; startDate = '2024-08-05'; endDate = '2024-12-31' } } }; New-MgUserCalendarEvent -UserId $userId -CalendarId $calendarId -BodyParameter $params"
+    },
+    {
+        "phrase": "Book a project planning session",
+        "tone": "Import-Module Microsoft.Graph.Calendar; Connect-MgGraph -Scopes 'User.Read Calendars.ReadWrite'; $userId = (Get-MgUser -UserId 'me').Id; $calendarId = (Get-MgUserCalendar -UserId $userId -Top 1).Id; $params = @{ subject = 'Project Planning Session'; body = @{ contentType = 'HTML'; content = 'Initial project planning and discussion' }; start = @{ dateTime = '2024-08-10T13:00:00'; timeZone = 'Pacific Standard Time' }; end = @{ dateTime = '2024-08-10T15:00:00'; timeZone = 'Pacific Standard Time' }; location = @{ displayName = 'Project Room 1' }; attendees = @(@{ emailAddress = @{ address = 'project.team@example.com'; name = 'Project Team' }; type = 'required' }) }; New-MgUserCalendarEvent -UserId $userId -CalendarId $calendarId -BodyParameter $params"
+    },
+    {
+        "phrase": "Arrange a client meeting",
+        "tone": "Import-Module Microsoft.Graph.Calendar; Connect-MgGraph -Scopes 'User.Read Calendars.ReadWrite'; $userId = (Get-MgUser -UserId 'me').Id; $calendarId = (Get-MgUserCalendar -UserId $userId -Top 1).Id; $params = @{ subject = 'Client Meeting'; body = @{ contentType = 'HTML'; content = 'Discuss project requirements and deliverables' }; start = @{ dateTime = '2024-08-15T11:00:00'; timeZone = 'Pacific Standard Time' }; end = @{ dateTime = '2024-08-15T12:30:00'; timeZone = 'Pacific Standard Time' }; location = @{ displayName = 'Client's Office' }; attendees = @(@{ emailAddress = @{ address = 'client@example.com'; name = 'Client' }; type = 'required' }) }; New-MgUserCalendarEvent -UserId $userId -CalendarId $calendarId -BodyParameter $params"
+    },
+    {
+        "phrase": "Schedule a quarterly review",
+        "tone": "Import-Module Microsoft.Graph.Calendar; Connect-MgGraph -Scopes 'User.Read Calendars.ReadWrite'; $userId = (Get-MgUser -UserId 'me').Id; $calendarId = (Get-MgUserCalendar -UserId $userId -Top 1).Id; $params = @{ subject = 'Quarterly Review'; body = @{ contentType = 'HTML'; content = 'Review of quarterly performance and goals' }; start = @{ dateTime = '2024-09-01T10:00:00'; timeZone = 'Pacific Standard Time' }; end = @{ dateTime = '2024-09-01T11:30:00'; timeZone = 'Pacific Standard Time' }; location = @{ displayName = 'Main Conference Room' }; attendees = @(@{ emailAddress = @{ address = 'review.team@example.com'; name = 'Review Team' }; type = 'required' }) }; New-MgUserCalendarEvent -UserId $userId -CalendarId $calendarId -BodyParameter $params"
+    },
+    {
+        "phrase": "Set up a holiday party",
+        "tone": "Import-Module Microsoft.Graph.Calendar; Connect-MgGraph -Scopes 'User.Read Calendars.ReadWrite'; $userId = (Get-MgUser -UserId 'me').Id; $calendarId = (Get-MgUserCalendar -UserId $userId -Top 1).Id; $params = @{ subject = 'Holiday Party'; body = @{ contentType = 'HTML'; content = 'Annual company holiday party' }; start = @{ dateTime = '2024-12-20T18:00:00'; timeZone = 'Pacific Standard Time' }; end = @{ dateTime = '2024-12-20T22:00:00'; timeZone = 'Pacific Standard Time' }; location = @{ displayName = 'Banquet Hall' }; attendees = @(@{ emailAddress = @{ address = 'all.employees@example.com'; name = 'All Employees' }; type = 'required' }) }; New-MgUserCalendarEvent -UserId $userId -CalendarId $calendarId -BodyParameter $params"
+    },
+    {
+        "phrase": "Organize a team-building event",
+        "tone": "Import-Module Microsoft.Graph.Calendar; Connect-MgGraph -Scopes 'User.Read Calendars.ReadWrite'; $userId = (Get-MgUser -UserId 'me').Id; $calendarId = (Get-MgUserCalendar -UserId $userId -Top 1).Id; $params = @{ subject = 'Team-Building Event'; body = @{ contentType = 'HTML'; content = 'Outdoor activities and games to enhance team bonding' }; start = @{ dateTime = '2024-08-20T09:00:00'; timeZone = 'Pacific Standard Time' }; end = @{ dateTime = '2024-08-20T17:00:00'; timeZone = 'Pacific Standard Time' }; location = @{ displayName = 'Park and Recreation Area' }; attendees = @(@{ emailAddress = @{ address = 'team@example.com'; name = 'Team' }; type = 'required' }) }; New-MgUserCalendarEvent -UserId $userId -CalendarId $calendarId -BodyParameter $params"
+    },
+    {
+        "phrase": "Book a conference call with international partners",
+        "tone": "Import-Module Microsoft.Graph.Calendar; Connect-MgGraph -Scopes 'User.Read Calendars.ReadWrite'; $userId = (Get-MgUser -UserId 'me').Id; $calendarId = (Get-MgUserCalendar -UserId $userId -Top 1).Id; $params = @{ subject = 'Conference Call with International Partners'; body = @{ contentType = 'HTML'; content = 'Discuss project updates and collaboration strategies' }; start = @{ dateTime = '2024-08-25T07:00:00'; timeZone = 'Pacific Standard Time' }; end = @{ dateTime = '2024-08-25T08:30:00'; timeZone = 'Pacific Standard Time' }; location = @{ displayName = 'Skype Call' }; attendees = @(@{ emailAddress = @{ address = 'partners@example.com'; name = 'International Partners' }; type = 'required' }) }; New-MgUserCalendarEvent -UserId $userId -CalendarId $calendarId -BodyParameter $params"
+    },
+    {
+        "phrase": "Arrange a brainstorming session",
+        "tone": "Import-Module Microsoft.Graph.Calendar; Connect-MgGraph -Scopes 'User.Read Calendars.ReadWrite'; $userId = (Get-MgUser -UserId 'me').Id; $calendarId = (Get-MgUserCalendar -UserId $userId -Top 1).Id; $params = @{ subject = 'Brainstorming Session'; body = @{ contentType = 'HTML'; content = 'Generate ideas for new project initiatives' }; start = @{ dateTime = '2024-09-05T14:00:00'; timeZone = 'Pacific Standard Time' }; end = @{ dateTime = '2024-09-05T16:00:00'; timeZone = 'Pacific Standard Time' }; location = @{ displayName = 'Idea Lab' }; attendees = @(@{ emailAddress = @{ address = 'creative.team@example.com'; name = 'Creative Team' }; type = 'required' }) }; New-MgUserCalendarEvent -UserId $userId -CalendarId $calendarId -BodyParameter $params"
+    },
+    {
+        "phrase": "create a lunch event",
+        "tone": "$params = @{ subject = 'Let's go for lunch'; body = @{ contentType = 'HTML'; content = 'Does next month work for you?' }; start = @{ dateTime = '2019-03-10T12:00:00'; timeZone = 'Pacific Standard Time' }; end = @{ dateTime = '2019-03-10T14:00:00'; timeZone = 'Pacific Standard Time' }; location = @{ displayName = 'Harry's Bar' }; attendees = @(@{ emailAddress = @{ address = 'rohanjakkal@gmail.com'; name = 'Adele Vance' }; type = 'required' }); isOnlineMeeting = $true; onlineMeetingProvider = 'teamsForBusiness' }; New-MgUserCalendarEvent -UserId $userId -CalendarId $calendarId -BodyParameter $params"
+    }
+      
+  ]
